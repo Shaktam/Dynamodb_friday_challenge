@@ -1,7 +1,7 @@
 resource "aws_lambda_function" "job_crawler_db" {
   function_name = "job_crawler_db"
   s3_bucket     = "job-notifier-dynodb-bucket"
-  s3_key        = "job_crawler_db.zip"
+  s3_key        = "job-data-api.zip"
   role          = "arn:aws:iam::467749311079:role/LabRole"
   handler       = "crawler.handler"
   timeout       = 300
@@ -13,7 +13,7 @@ resource "aws_lambda_function" "job_crawler_db" {
 
 resource "aws_lambda_layer_version" "requests_db_layer" {
   s3_bucket     = "job-notifier-dynodb-bucket"
-  s3_key        = "requests-db-layer.zip"
+  s3_key        = "requests-layer.zip"
   layer_name    = "requests-db-layer"
 
   compatible_runtimes = ["python3.9"]
@@ -28,13 +28,13 @@ resource "aws_cloudwatch_event_rule" "every_five_minutes" {
 resource "aws_cloudwatch_event_target" "job_crawler_every_five_minutes" {
     rule = aws_cloudwatch_event_rule.every_five_minutes.name
     target_id = "crawl-db-jobs"
-    arn = aws_lambda_function.job_db_crawler.arn
+    arn = aws_lambda_function.job_crawler_db.arn
 }
 
 resource "aws_lambda_permission" "allow_cloudwatch_to_call_job_crawler" {
     statement_id = "AllowExecutionFromCloudWatch"
     action = "lambda:InvokeFunction"
-    function_name = aws_lambda_function.job_db_crawler.function_name
+    function_name = aws_lambda_function.job_crawler_db.function_name
     principal = "events.amazonaws.com"
     source_arn = aws_cloudwatch_event_rule.every_five_minutes.arn
 }

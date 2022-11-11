@@ -41,6 +41,6 @@ resource "aws_autoscaling_group" "dbwebserver" {
   depends_on = [
     aws_nat_gateway.nat
   ]
-  target_group_arns = [aws_lb_target_group.webserver_target.arn]
+  target_group_arns = [aws_lb_target_group.dbwebserver_target.arn]
 }
 

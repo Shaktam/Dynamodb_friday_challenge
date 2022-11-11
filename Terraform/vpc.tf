@@ -23,7 +23,7 @@ resource "aws_subnet" "public_subnet_b" {
 }
 
 resource "aws_subnet" "private_subnet_a" {
-  vpc_id     = aws_vpc.myvpc.id
+  vpc_id     = aws_vpc.dbvpc.id
   cidr_block = "10.0.3.0/24"
   availability_zone = "us-west-2a"
 

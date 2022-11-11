@@ -34,7 +34,7 @@ resource "aws_lb" "job_dblb" {
 }
 
 resource "aws_lb_listener" "dbwebserver_listener" {
-  load_balancer_arn = aws_lb.job_lb.arn
+  load_balancer_arn = aws_lb.job_dblb.arn
   port              = "80"
   protocol          = "HTTP"
   default_action {
@@ -47,7 +47,7 @@ resource "aws_lb_target_group" "dbwebserver_target" {
   name     = "webserver-target"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = aws_vpc.myvpc.id
+  vpc_id   = aws_vpc.dbvpc.id
 }
 
 output "load_balancer_dns" {
