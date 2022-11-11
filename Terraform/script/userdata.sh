@@ -8,4 +8,3 @@ unzip fastapijob.zip
 pip3 install -r requirements.txt
 cd source_db
 python3 jobapi_code.py
-python3 creates3_bucket.py

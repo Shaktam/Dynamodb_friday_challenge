@@ -1,6 +1,6 @@
 import boto3
 
-AWS_REGION = "us-east-2"
+AWS_REGION = "us-west-2"
 s3 = boto3.resource('s3')
 client = boto3.client('s3',region_name=AWS_REGION)
 location = {'LocationConstraint': AWS_REGION}

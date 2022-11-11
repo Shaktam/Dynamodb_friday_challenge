@@ -17,3 +17,16 @@ Exercise to learn the Basics about dynamo DB
 1. create a dynamo DB stream to call a lambda function
 1. check every new/updated item if it includes AWS
 1. If the item includes aws send a sns email notification to you
+
+
+
+"""def backend_tfbucket():
+    if s3.Bucket(tf_backendbucket) in s3.buckets.all():
+        print("s3 Bucket "+ tf_backendbucket +" Exists!")
+        return True
+    else:
+        client.create_bucket(Bucket=tf_backendbucket, CreateBucketConfiguration=location)
+        print(f"Created a new bucket while bucket "+ tf_backendbucket +" does not exist!")
+        return False
+backend_tfbucket()
+"""

@@ -28,6 +28,6 @@ zip -r ../dbbucket/requests-layer.zip .
 cd ..
 
 echo  "upload to s3 bucket"
-aws s3 cp build/requests-layer.zip s3://job-notifier-dynodb-bucket/
+aws s3 cp dbbucket/requests-layer.zip s3://job-notifier-dynodb-bucket/
 
 
