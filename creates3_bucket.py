@@ -7,12 +7,12 @@ location = {'LocationConstraint': AWS_REGION}
   
 
 def check_create_s3():
-    if s3.Bucket('job-notifier-dynodb-bucket') in s3.buckets.all():
-        print("Bucket job-notifier-dynodb-bucket Exists!")
+    if s3.Bucket('job-notifier-dynodb-bucket1') in s3.buckets.all():
+        print("Bucket job-notifier-dynodb-bucket1 Exists!")
         return True
     else:
-        client.create_bucket(Bucket="job-notifier-dynodb-bucket",CreateBucketConfiguration=location)
-        print("Created a new bucket while bucket job-notifier-dynodb-bucket does not exist!")
+        client.create_bucket(Bucket="job-notifier-dynodb-bucket1",CreateBucketConfiguration=location)
+        print("Created a new bucket while bucket job-notifier-dynodb-bucket1 does not exist!")
         return False
 
 check_create_s3()

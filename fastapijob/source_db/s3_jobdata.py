@@ -2,7 +2,7 @@ import json
 import boto3
 
 s3 =boto3.resource('s3')
-job_bucket= "job-notifier-dynodb-bucket"
+job_bucket= "job-notifier-dynodb-bucket1"
 bucket =s3.Bucket(job_bucket)
 
 def list_job():

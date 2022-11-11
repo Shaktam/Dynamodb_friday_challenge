@@ -3,7 +3,7 @@ import json
 
 s3_client = boto3.client("s3")
 
-job_data_bucket = "nice-s3-bucket-for-jobs1234" 
+job_data_bucket = "job-notifier-dynodb-bucket1" 
 
 def save_job_to_s3(job):
     job_data_string = json.dumps(job)

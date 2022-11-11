@@ -1,6 +1,6 @@
 resource "aws_lambda_function" "job_crawler_db" {
   function_name = "job_crawler_db"
-  s3_bucket     = "job-notifier-dynodb-bucket"
+  s3_bucket     = "job-notifier-dynodb-bucket1"
   s3_key        = "job-data-api.zip"
   role          = "arn:aws:iam::467749311079:role/LabRole"
   handler       = "crawler.handler"
@@ -12,7 +12,7 @@ resource "aws_lambda_function" "job_crawler_db" {
 
 
 resource "aws_lambda_layer_version" "requests_db_layer" {
-  s3_bucket     = "job-notifier-dynodb-bucket"
+  s3_bucket     = "job-notifier-dynodb-bucket1"
   s3_key        = "requests-layer.zip"
   layer_name    = "requests-db-layer"
 

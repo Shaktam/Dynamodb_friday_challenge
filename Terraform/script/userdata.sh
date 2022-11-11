@@ -3,7 +3,7 @@
 cd terraform 
 
 cd /home/ec2-user
-aws s3 cp s3://job-notifier-dynodb-bucket/
+aws s3 cp s3://job-notifier-dynodb-bucket1/
 unzip fastapijob.zip
 pip3 install -r requirements.txt
 cd source_db

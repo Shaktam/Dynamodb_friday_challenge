@@ -1,5 +1,5 @@
-resource "aws_launch_template" "dynodbwebserver" {
-  name = "dynodbwebserver"
+resource "aws_launch_template" "dynodbwebserver1" {
+  name = "dynodbwebserver1"
 
   block_device_mappings {
     device_name = "/dev/sda1"
@@ -35,7 +35,7 @@ resource "aws_autoscaling_group" "dbwebserver" {
   min_size           = 2
 
   launch_template {
-    id      = aws_launch_template.dynodbwebserver.id
+    id      = aws_launch_template.dynodbwebserver1.id
     version = "$Latest"
   }
   depends_on = [
