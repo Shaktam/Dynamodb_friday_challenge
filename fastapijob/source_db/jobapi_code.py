@@ -3,8 +3,7 @@
 # 1. "/job" a list of jobs 
 # 1. "/job/:id" "single job matching the id
 
-from http.client import HTTPException
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 import uvicorn
 from s3_jobdata import get_job_data, list_job
 
