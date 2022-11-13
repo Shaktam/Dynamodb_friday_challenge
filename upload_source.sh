@@ -13,11 +13,11 @@ aws s3 cp dbbucket/fastapijob.zip s3://job-notifier-dynodb-bucket1/
 
 echo" Zip job-data-api files for job"
 
-cd job-data-api
-zip ../dbbucket/job-data-api.zip requirements.txt
-zip -r ../dbbucket/job-data-api.zip source_jobapi
+cd job-data-api/source_jobapi
 
-cd ..
+zip -r ../../dbbucket/job-data-api.zip .
+
+cd ../..
 
 echo "upload to s3 bucket"
 aws s3 cp dbbucket/job-data-api.zip s3://job-notifier-dynodb-bucket1/ 
