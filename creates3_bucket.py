@@ -27,3 +27,14 @@ def backend_tfbucket():
         return False
 
 backend_tfbucket()
+
+def create_job_bucket():
+    if s3.Bucket('job-json-id-bucket') in s3.buckets.all():
+        print("Bucket job-json-id-bucket Exists!")
+        return True
+    else:
+        client.create_bucket(Bucket="job-json-id-bucket",CreateBucketConfiguration=location)
+        print("Created a new bucket while bucket job-json-id-bucket does not exist!")
+        return False
+
+create_job_bucket()
